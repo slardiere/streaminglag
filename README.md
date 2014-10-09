@@ -3,7 +3,6 @@
 This extension provide useful functions to compute `Log Sequence Number` and
 show
 
-
 These functions translate `LSN` in `bigint` : 
 
 - create or replace function CalculateNumericalOffset(text) returns bigint
@@ -28,3 +27,23 @@ following queries :
 Differents Lags are calculate from `sent_location` on the master to `write`, `flush`
  and `replay` on a standby. 
 
+## Installation
+
+Just use the makefile :
+
+	sudo make install
+
+Then create the extension :
+
+	psql -Upostgres
+	CREATE EXTENSION streaminglag ;
+
+And use it !
+
+## References
+
+These functions come from these source :
+
+* [http://munin-monitoring.org/browser/munin/plugins/node.d/postgres_streaming_.in]
+* [http://www.postgresql.org/docs/9.3/static/monitoring-stats.html#PG-STAT-REPLICATION-VIEW]
+* [http://eulerto.blogspot.fr/2011/11/understanding-wal-nomenclature.html]
